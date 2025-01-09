@@ -11,12 +11,14 @@ def main():
     for level in levels:
         # split level into values
         values = level.split()
-        is_safe = True
+        if len(level) > 0:
+            is_safe = True
         # check values in each level
         for i in range(len(values)):
             current_value = int(values[i])
             next_value = int(values[i+1]) if len(values) > i + 1 else None
             # check whether going up or down
+            # TODO make it possible to check the other way if extra life is used
             if i == 0:
                 if next_value is not None:
                     if current_value < next_value:
